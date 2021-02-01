@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Cointoss Dapp</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <title>People</title>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"></script>
+  <script type="text/javascript" src="./web3.min.js"></script>
+  <script type="text/javascript" src="./abi.js"></script>
+  <script type="text/javascript" src="./main.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/bootstrap-slider.js" integrity="sha512-tCkLWlSXiiMsUaDl5+8bqwpGXXh0zZsgzX6pB9IQCZH+8iwXRYfcCpdxl/owoM6U4ap7QZDW4kw7djQUiQ4G2A==" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/css/bootstrap-slider.css" integrity="sha512-SZgE3m1he0aEF3tIxxnz/3mXu/u/wlMNxQSnE0Cni9j/O8Gs+TjM9tm1NX34nRQ7GiLwUEzwuE3Wv2FLz2667w==" crossorigin="anonymous" />
+</head>
+<body class="text-light bg-dark">
+
+<div class="container">
+	<div class="row">
+		<div class="col-9">
+			<h1 class="text-warning">Cointoss Dapp</h1>
+		</div>
+		<div class="col-3">
+			<div class="col-4">
+				<button id="btn_withdraw_all" type="button" class="btn btn-secondary mt-2 text-nowrap">Withdraw all (owner)</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="messages" class="alert alert-danger" role="alert" style="visibility:hidden">
+</div>
+  
+
+<div class="container-fluid container pt-3">
+
+	<div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="false">
+
+	  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		<span class="sr-only">Previous</span>
+	  </a>
+
+	  <div class="carousel-inner">
+		<div class="carousel-item active" style="height: 320px; max-height: 320px;">
+			<div class="row">
+				<div class="col-6">
+					<div class="row">
+						<img class="d-block mx-auto" src="img/coin_liberty_H.png" alt="First slide">
+					</div>
+					<div class="row">
+						<label class="form-check-label d-block mx-auto">
+							<input type="radio" class="form-check-input" name="optradio" id="radio_H" value="1">Bet on Heads
+						</label>
+					</div>
+				</div>
+				
+				<div class="col-6">
+					<div class="row">
+						<img class="d-block mx-auto" src="img/coin_liberty_T.png" alt="First slide">
+					</div>
+					<div class="row">
+						<label class="form-check-label d-block mx-auto">
+							<input type="radio" class="form-check-input" name="optradio" id="radio_T" value="0">Bet on Tails
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="carousel-item" style="height: 320px; max-height: 320px;">
+			<div class="row">
+				<div class="col-6">
+					<div class="row">
+						<img class="d-block mx-auto" src="img/coin_euro_H.png" alt="First slide">
+					</div>
+					<div class="row">
+						<label class="form-check-label d-block mx-auto">
+							<input type="radio" class="form-check-input" name="optradio" id="radio_H" value="1">Bet on Heads
+						</label>
+					</div>
+				</div>
+				
+				<div class="col-6">
+					<div class="row">
+						<img class="d-block mx-auto" src="img/coin_euro_T.png" alt="First slide">
+					</div>
+					<div class="row">
+						<label class="form-check-label d-block mx-auto">
+							<input type="radio" class="form-check-input" name="optradio" id="radio_T" value="0">Bet on Tails
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="carousel-item" style="height: 320px; max-height: 320px;">
+			<div class="row">
+				<div class="col-6">
+					<div class="row">
+						<img class="d-block mx-auto" src="img/coin_swissf_H.png" alt="First slide">
+					</div>
+					<div class="row">
+						<label class="form-check-label d-block mx-auto">
+							<input type="radio" class="form-check-input" name="optradio" id="radio_H" value="1">Bet on Heads
+						</label>
+					</div>
+				</div>
+				
+				<div class="col-6">
+					<div class="row">
+						<img class="d-block mx-auto" src="img/coin_swissf_T.png" alt="First slide">
+					</div>
+					<div class="row">
+						<label class="form-check-label d-block mx-auto">
+							<input type="radio" class="form-check-input" name="optradio" id="radio_T" value="0">Bet on Tails
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="carousel-item" style="height: 320px; max-height: 320px;">
+						<div class="row">
+				<div class="col-6">
+					<div class="row">
+						<img class="d-block mx-auto" src="img/coin_quarter_H.png" alt="First slide">
+					</div>
+					<div class="row">
+						<label class="form-check-label d-block mx-auto">
+							<input type="radio" class="form-check-input" name="optradio" id="radio_H" value="1">Bet on Heads
+						</label>
+					</div>
+				</div>
+				
+				<div class="col-6">
+					<div class="row">
+						<img class="d-block mx-auto" src="img/coin_quarter_T.png" alt="First slide">
+					</div>
+					<div class="row">
+						<label class="form-check-label d-block mx-auto">
+							<input type="radio" class="form-check-input" name="optradio" id="radio_T" value="0">Bet on Tails
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="carousel-item" style="height: 320px; max-height: 320px;">
+			<div class="row">
+				<div class="col-6">
+					<div class="row">
+						<img class="d-block mx-auto" src="img/coin_caesar_H.png" alt="First slide">
+					</div>
+					<div class="row">
+						<label class="form-check-label d-block mx-auto">
+							<input type="radio" class="form-check-input" name="optradio" id="radio_H" value="1">Bet on Heads
+						</label>
+					</div>
+				</div>
+				
+				<div class="col-6">
+					<div class="row">
+						<img class="d-block mx-auto" src="img/coin_caesar_T.png" alt="First slide">
+					</div>
+					<div class="row">
+						<label class="form-check-label d-block mx-auto">
+							<input type="radio" class="form-check-input" name="optradio" id="radio_T" value="0">Bet on Tails
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+	  </div>
+	  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+		<span class="carousel-control-next-icon" aria-hidden="true"></span>
+		<span class="sr-only">Next</span>
+	  </a>
+
+	</div>
+	</br>
+	</br>
+	<div class="row ml-5">
+		<div class="col">
+			<p class="text-light">Total bets: <span id="totalBets" class="badge badge-secondary">0</span></p>
+			<p class="text-light">Total wins: <span id="totalWins" class="badge badge-secondary">0</span></p>
+			<p class="text-light">Profit (ETH): <span id="profit" class="badge badge-secondary">0</span></p>
+		    <p class="text-light">Current betted coin side: <span id="currBetSide" class="badge badge-secondary">?</span></p>
+			<p class="text-light">Current betted amount: <span id="currBetAmount" class="badge badge-secondary">0</span></p>
+		</div>
+		<div class="col">
+			<div class="row d-block mx-auto">
+				<label class="form-check-label d-block mx-auto">
+					Bet amount (ETH):
+				</label>
+			</div>
+			<div class="row d-block mx-auto">
+				<input
+					type="text"
+					id="bet_amount_slider"
+					name="bet_amount_slider"
+					data-provide="slider"
+					data-slider-ticks="[0.1, 0.2, 0.3, 0.4, 0.5]"
+					data-slider-ticks-labels='["0.1", "0.2", "0.3", "0.4", "0.5"]'
+					data-slider-min="0.1"
+					data-slider-max="0.5"
+					data-slider-step="0.1"
+					data-slider-value="0.1"
+					data-slider-tooltip="hide">
+				
+			</div>
+		</div>
+		<div class="col">
+			
+		</div>
+
+		
+	</div>
+
+	
+	<div class="row ml-5">
+		<div class="col-4">
+			<button id="btn_get_summary" type="button" class="btn btn-warning ml-5">Refresh</button>
+		</div>
+		<div class="col-4">
+			<button id="btn_place_bet" type="button" class="btn btn-warning ml-5">Place bet</button>
+		</div>
+		<div class="col-4">
+			<button id="btn_withdraw" type="button" class="btn btn-warning ml-5">Withdraw profit</button>
+		</div>
+		
+		
+	</div>
+</div>
+
+
+
+</body>
+</html>
